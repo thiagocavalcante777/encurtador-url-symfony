@@ -5,10 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class GerarUrlController extends AbstractController
 {
     /**
-     * @Route("/home", name="home", methods={"GET"})
+     * @Route("/gerar-url", name="home", methods={"GET"})
      */
     public function homeAction()
     {
