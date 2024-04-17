@@ -29,6 +29,7 @@ class Url
 
     /**
      * @ORM\Column(type="string", length=10)
+     * A = Ativo, D = Desativado
      */
     private $status;
 

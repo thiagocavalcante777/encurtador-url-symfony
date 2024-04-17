@@ -15,9 +15,11 @@
 </head>
 <body>
 {% block body %}
-    <form id="form-gerar-url">
-        <input name="url_original" placeholder="url original">
-        <button>Encurtar Url</button>
+    <form id="form-gerar-url" action="{{ path('gerar_url') }}" method="POST">
+        <div style="display: flex;">
+            <input id="input-url-original" name="url_original" placeholder="url original">
+            <button id="btn-gerar-url">Encurtar Url</button>
+        </div>
     </form>
 {% endblock %}
 </body>
