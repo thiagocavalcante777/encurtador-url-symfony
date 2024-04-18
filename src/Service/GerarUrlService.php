@@ -8,7 +8,6 @@ use Doctrine\ORM\EntityManagerInterface;
 class GerarUrlService
 {
     const ALFABETO = 'abcdefghijklmnopqrstuvwxyz';
-    const URL_BASE = 'http://deve.encurtador-url.mazaltec.com.br';
 
     public function __construct(private EntityManagerInterface $entityManager) { }
 
@@ -45,6 +44,6 @@ class GerarUrlService
             $letrasAleatorias .= self::ALFABETO[$indiceAleatorio];
         }
 
-        return self::URL_BASE.'/'.$letrasAleatorias.$stringData;
+        return $_ENV['URL_BASE'].'/'.$letrasAleatorias.$stringData;
     }
 }
