@@ -1,4 +1,6 @@
-body {
+@import "~bootstrap";
+
+#container-gerar-url {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,22 +13,13 @@ body {
 
 #form-gerar-url {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 800px;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
 }
 
-#input-url-original {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
+#input-url {
+    width: 600px;
 }
 
-#btn-gerar-url{
-    width: 20%;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-}
+

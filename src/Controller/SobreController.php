@@ -6,14 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class SobreController extends AbstractController
 {
 
     /**
-     * @Route("/", name="home", methods={"GET"})
+     * @Route("/sobre", name="sobre", methods={"GET"})
      */
-    public function homeAction(): Response
+    public function sobreAction(): Response
     {
-        return $this->render('home.html.twig');
+        return $this->render('sobre.html.twig');
     }
 }
