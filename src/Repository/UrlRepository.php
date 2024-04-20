@@ -39,4 +39,16 @@ class UrlRepository extends ServiceEntityRepository
 
         return $url;
     }
+
+    public function obterUrlOriginal(string $path): array
+    {
+        $queryBuilder = $this->createQueryBuilder('url');
+        $queryBuilder->select('url.urlOriginal')
+            ->where('url.path = :path')
+            ->setParameter('path', $path)
+            ->orderBy('url.id', 'DESC')
+            ->setMaxResults(1);
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
 }

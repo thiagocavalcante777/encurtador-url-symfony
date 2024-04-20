@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Service\UrlService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,5 +38,15 @@ class UrlController extends AbstractController
         $dados = $this->urlService->obterTodasUrls();
 
         return new JsonResponse($dados, Response::HTTP_OK) ;
+    }
+
+    /**
+     * @Route("/{urlGerada}", name="obter_todas_urls", methods={"GET"})
+     */
+    public function redirecionarUrlAction(string $urlGerada): RedirectResponse
+    {
+        $urlOriginal = $this->urlService->obterUrlOriginal($urlGerada);
+
+        return new RedirectResponse($urlOriginal['urlOriginal']);
     }
 }

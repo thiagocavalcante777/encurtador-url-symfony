@@ -34,6 +34,9 @@ export default class extends Controller {
 
                     var gerar_url_section  = document.getElementById('gerar-url-section');
                     gerar_url_section.style.display = 'none';
+
+                    var url_gerada_section  = document.getElementById('url-gerada-section');
+                    url_gerada_section.style.display = 'flex';
                 })
                 .catch(function(error) {
                     // Manipula erros, caso ocorram

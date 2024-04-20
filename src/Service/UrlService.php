@@ -44,4 +44,9 @@ class UrlService
     public function obterTodasUrls() {
        return $this->urlRepository->obterTodasUrls();
     }
+
+    public function obterUrlOriginal(string $path): array
+    {
+        return $this->urlRepository->obterUrlOriginal($path);
+    }
 }
