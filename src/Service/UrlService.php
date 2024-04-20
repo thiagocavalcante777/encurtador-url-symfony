@@ -3,13 +3,17 @@
 namespace App\Service;
 
 use App\Entity\Url;
+use App\Repository\UrlRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
-class GerarUrlService
+class UrlService
 {
     const ALFABETO = 'abcdefghijklmnopqrstuvwxyz';
 
-    public function __construct(private EntityManagerInterface $entityManager) { }
+    public function __construct(
+        private EntityManagerInterface $entityManager,
+        private UrlRepository $urlRepository
+    ) { }
 
     public function gerarUrl(string $urlOriginal): string
     {
@@ -45,5 +49,9 @@ class GerarUrlService
         }
 
         return $_ENV['URL_BASE'].'/'.$letrasAleatorias.$stringData;
+    }
+
+    public function obterTodasUrls() {
+       return $this->urlRepository->obterTodasUrls();
     }
 }
