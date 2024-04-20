@@ -1,14 +1,17 @@
 @import "~bootstrap";
 
-#container-gerar-url {
+#container-gerarurl {
+    background-image: url("../imagens/background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.gerar-url {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url("../imagens/background.jpg");
-    background-size: cover;
-    background-position: center;
 }
 
 #form-gerar-url {
@@ -18,8 +21,23 @@
     width: 800px;
 }
 
+#url-gerada{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+}
+
 #input-url {
     width: 600px;
+}
+
+#input-url-gerada {
+    width: 600px;
+}
+
+#url-gerada-section{
+
 }
 
 

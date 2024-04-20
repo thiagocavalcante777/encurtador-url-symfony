@@ -12,12 +12,31 @@ class UrlRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Url::class);
     }
-    public function obterTodasUrls()
+
+    public function obterTodasUrls(): array
     {
         $queryBuilder = $this->createQueryBuilder('url');
 
         $queryBuilder->select('url');
 
         return $queryBuilder->getQuery()->getArrayResult();
+    }
+
+    public function obterTamanhoUrl(): string
+    {
+        $queryBuilder = $this->createQueryBuilder('url');
+        $queryBuilder->select('path')
+            ->orderBy('url.id', 'DESC')
+            ->setMaxResults(1);
+
+        $queryBuilder->getQuery()->getResult();
+    }
+
+    public function salvar(Url $url): Url
+    {
+        $this->getEntityManager()->persist($url);
+        $this->getEntityManager()->flush();
+
+        return $url;
     }
 }

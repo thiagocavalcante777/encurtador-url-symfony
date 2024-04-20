@@ -4,51 +4,41 @@ namespace App\Service;
 
 use App\Entity\Url;
 use App\Repository\UrlRepository;
-use Doctrine\ORM\EntityManagerInterface;
 
 class UrlService
 {
-    const ALFABETO = 'abcdefghijklmnopqrstuvwxyz';
+    const CARACTERES = 'abcdefghijklmnopqrstuvwxyz0123456789-&$#@!)([]{}/|+?';
 
     public function __construct(
-        private EntityManagerInterface $entityManager,
         private UrlRepository $urlRepository
     ) { }
 
-    public function gerarUrl(string $urlOriginal): string
+    public function gerarUrl(string $urlOriginal): array
     {
-        $urlNova = $this->montarUrlNova($urlOriginal);
+        $path = $this->gerarPath();
+        $urlNova = $this->montarUrlNova($path);
 
         $url = new Url();
         $url->setUrlOriginal($urlOriginal);
         $url->setUrlGerada($urlNova);
         $url->setStatus('A');
+        $url->setPath($path);
 
-        $this->entityManager->persist($url);
-        $this->entityManager->flush();
+        $this->urlRepository->salvar($url);
 
-        return $url->getUrlGerada();
+        return [
+            'url_gerada' => $urlNova
+        ];
     }
 
-    private function montarUrlNova(string $urlOriginal): string
+    private function gerarPath()
     {
-        $ano = date('Y');
-        $mes = date('m');
-        $dia = date('d');
-        $hora = date('H');
-        $minuto = date('i');
-        $segundo = date('s');
+        return substr(str_shuffle(self::CARACTERES), 0, 5);
+    }
 
-        $stringData = $ano.$mes.$dia.$hora.$minuto.$segundo;
-
-        $letrasAleatorias = '';
-
-        for ($i = 0; $i < 4; $i++) {
-            $indiceAleatorio =  rand(0, strlen(self::ALFABETO) - 1);
-            $letrasAleatorias .= self::ALFABETO[$indiceAleatorio];
-        }
-
-        return $_ENV['URL_BASE'].'/'.$letrasAleatorias.$stringData;
+    private function montarUrlNova(string $path): string
+    {
+        return $_ENV['URL_BASE'].'/'.$path;
     }
 
     public function obterTodasUrls() {

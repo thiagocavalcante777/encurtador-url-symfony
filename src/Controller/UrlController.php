@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\JsonDecode;
 
 class UrlController extends AbstractController
 {
@@ -18,8 +19,11 @@ class UrlController extends AbstractController
      */
     public function gerarUrlAction(Request $request): Response
     {
-        $urgOriginal = $request->get('url_original');
-        $urlNova = $this->urlService->gerarUrl($urgOriginal);
+        $conteudoJson = $request->getContent();
+
+        $array = json_decode($conteudoJson, true);
+
+        $urlNova = $this->urlService->gerarUrl($array['url_original']);
 
         return new JsonResponse($urlNova, Response::HTTP_OK) ;
     }

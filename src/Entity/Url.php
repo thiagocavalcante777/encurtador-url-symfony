@@ -34,6 +34,11 @@ class Url
     private $status;
 
     /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $path;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -95,5 +100,21 @@ class Url
     public function setStatus($status): void
     {
         $this->status = $status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * @param mixed $path
+     */
+    public function setPath($path): void
+    {
+        $this->path = $path;
     }
 }
