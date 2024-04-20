@@ -24,6 +24,10 @@ class UrlController extends AbstractController
 
         $array = json_decode($conteudoJson, true);
 
+        if (empty($array['url_original'])) {
+            return new JsonResponse('Necessário informa uma url válida', Response::HTTP_BAD_REQUEST) ;
+        }
+
         $urlNova = $this->urlService->gerarUrl($array['url_original']);
 
         return new JsonResponse($urlNova, Response::HTTP_OK) ;

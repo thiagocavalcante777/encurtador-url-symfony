@@ -22,7 +22,9 @@ export default class extends Controller {
                 .then(function(response) {
                     // Verifica se a requisição foi bem-sucedida (código de status 200)
                     if (!response.ok) {
-                        throw new Error('Ocorreu um erro na requisição: ' + response.status);
+                        return response.json().then(function(data) {
+                            throw new Error(data);
+                        });
                     }
                     // Retorna a resposta como JSON
                     return response.json();
@@ -39,8 +41,9 @@ export default class extends Controller {
                     url_gerada_section.style.display = 'flex';
                 })
                 .catch(function(error) {
+                    alert(error);
                     // Manipula erros, caso ocorram
-                    console.error('Ocorreu um erro:', error);
+                    console.error(error, error);
                 })
         });
     }
