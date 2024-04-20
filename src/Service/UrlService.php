@@ -38,7 +38,7 @@ class UrlService
 
     private function montarUrlNova(string $path): string
     {
-        return $_ENV['URL_BASE'].'/'.$path;
+        return $_ENV['URL_BASE'].'/lk/'.$path;
     }
 
     public function obterTodasUrls() {

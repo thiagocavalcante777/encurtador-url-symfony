@@ -45,7 +45,7 @@ class UrlController extends AbstractController
     }
 
     /**
-     * @Route("/{urlGerada}", name="obter_todas_urls", methods={"GET"})
+     * @Route("/lk/{urlGerada}", name="redirecionar", methods={"GET"})
      */
     public function redirecionarUrlAction(string $urlGerada): RedirectResponse
     {
