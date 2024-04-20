@@ -11,7 +11,7 @@ import { Controller } from '@hotwired/stimulus';
  */
 export default class extends Controller {
     connect() {
-        this.element.textContent = 'Você clicou 0 vezes!';
+        this.element.innerHTML = '<button type="submit" class="btn btn-primary mb-2">Encurtar Url</button>';
         this.count = 0;
         this.element.addEventListener('click', () => {
 // Faz uma requisição GET para uma URL específica
