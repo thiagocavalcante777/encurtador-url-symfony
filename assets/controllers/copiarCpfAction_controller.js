@@ -2,7 +2,7 @@ import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
     connect() {
-        this.element.innerHTML = '<button type="submit" class="btn btn-secondary mb-2">Copiar Url</button>';
+        this.element.innerHTML = '<button type="submit" class="btn btn-secondary mb-2">Copiar Cpf</button>';
 
         this.element.addEventListener('click', (e) => {
             let url_gerada = document.getElementById('cpf-gerado').value

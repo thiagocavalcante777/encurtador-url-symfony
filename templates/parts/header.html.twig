@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}Many Tools!{% endblock %}</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
     {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     {% block stylesheets %}
@@ -23,12 +23,12 @@
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
-                        <a href="{{ path('gerar_url_index') }}" class="nav-link align-middle px-0">
+                        <a style="color: #FFFFFF" href="{{ path('gerar_url_index') }}" class="nav-link align-middle px-0">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Gerar Url</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ path('gerar_cpf_index') }}" class="nav-link px-0 align-middle">
+                        <a style="color: #FFFFFF" href="{{ path('gerar_cpf_index') }}" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Gerar Cpf</span> </a>
                     </li>
                 </ul>

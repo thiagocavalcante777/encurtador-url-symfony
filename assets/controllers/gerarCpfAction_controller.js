@@ -8,7 +8,7 @@ export default class extends Controller {
 
             e.preventDefault();
 
-            fetch('http://deve.encurtador-url.mazaltec.com.br/gerar-cpf', {
+            fetch('http://deve.many-tools.mazaltec.com.br/gerar-cpf', {
                 method: 'POST'
             })
                 .then(function(response) {
@@ -23,14 +23,8 @@ export default class extends Controller {
                 })
                 .then(function(data) {
                     // Manipula os dados recebidos do servidor
-                    console.log(data.url_gerada);
-                    document.getElementById('input-url-gerada').value = data.cpf_gerado;
-
-                    var gerar_url_section  = document.getElementById('gerar-url-section');
-                    gerar_url_section.style.display = 'none';
-
-                    var url_gerada_section  = document.getElementById('url-gerada-section');
-                    url_gerada_section.style.display = 'flex';
+                    console.log(data.cpf_gerado);
+                    document.getElementById('cpf-gerado').value = data.cpf_gerado;
                 })
                 .catch(function(error) {
                     alert(error);

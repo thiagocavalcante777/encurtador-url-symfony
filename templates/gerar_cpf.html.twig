@@ -1,9 +1,23 @@
 {% include 'parts/header.html.twig' %}
 {% block body %}
-    <div class="row">
-        <div class="col">
-            <div data-controller="gerarCpfAction"></div>
-        </div>
+    <div class="container-fluid">
+        <section class="section-gerar">
+            <div>
+                <div class="row">
+                    <div class="col">
+                        <div data-controller="gerarCpfAction"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input id="cpf-gerado" name="cpf" placeholder="cpf" class="form-control">
+                    </div>
+                    <div class="col">
+                        <div data-controller="copiarCpfAction"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 {% endblock %}
 {% include 'parts/footer.html.twig' %}

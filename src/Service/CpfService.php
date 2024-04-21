@@ -27,6 +27,8 @@ class CpfService
 
         $cpf .= $segundoDigito;
 
-        return $cpf;
+        return [
+            'cpf_gerado' => $cpf,
+        ];
     }
 }
