@@ -7,7 +7,7 @@ use App\Repository\UrlRepository;
 
 class UrlService
 {
-    const CARACTERES = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-&$#@!)([]{}/|+?';
+    const CARACTERES = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-&$#@!)([]{}|+?';
 
     public function __construct(
         private UrlRepository $urlRepository
