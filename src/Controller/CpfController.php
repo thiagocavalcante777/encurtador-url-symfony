@@ -6,14 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class SobreController extends AbstractController
+class CpfController extends AbstractController
 {
 
     /**
-     * @Route("/sobre", name="sobre", methods={"GET"})
+     * @Route("/cpf", name="gerar_cpf_index", methods={"GET"})
      */
-    public function sobreAction(): Response
+    public function indexAction(): Response
     {
-        return $this->render('sobre.html.twig');
+        return $this->render('gerar_cpf.html.twig');
     }
 }

@@ -13,18 +13,26 @@
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
 </head>
-{#<nav class="navbar navbar-expand-lg bg-body-tertiary">#}
-{#    <div class="container-fluid">#}
-{#        <a class="navbar-brand" href="#">Navbar</a>#}
-{#        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">#}
-{#            <span class="navbar-toggler-icon"></span>#}
-{#        </button>#}
-{#        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">#}
-{#            <div class="navbar-nav">#}
-{#                <a class="nav-link active" aria-current="page" href="/">Home</a>#}
-{#                <a class="nav-link" href="{{ path('sobre') }}">Sobre</a>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#</nav>#}
 <body>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Many Tools</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a href="{{ path('gerar_url_index') }}" class="nav-link align-middle px-0">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Gerar Url</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('gerar_cpf_index') }}" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Gerar Cpf</span> </a>
+                    </li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+        <div class="col py-3">

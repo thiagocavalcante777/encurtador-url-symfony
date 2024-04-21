@@ -16,6 +16,14 @@ class UrlController extends AbstractController
     public function __construct(private UrlService $urlService) { }
 
     /**
+     * @Route("/", name="gerar_url_index", methods={"GET"})
+     */
+    public function indexAction(): Response
+    {
+        return $this->render('gerar_url.html.twig');
+    }
+
+    /**
      * @Route("/gerar-url", name="gerar_url", methods={"POST"})
      */
     public function gerarUrlAction(Request $request): Response
@@ -32,7 +40,6 @@ class UrlController extends AbstractController
 
         return new JsonResponse($urlNova, Response::HTTP_OK) ;
     }
-
 
     /**
      * @Route("/obter-todas-urls", name="obter_todas_urls", methods={"GET"})

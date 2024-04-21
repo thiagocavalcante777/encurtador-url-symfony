@@ -9,11 +9,4 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
 
-    /**
-     * @Route("/", name="home", methods={"GET"})
-     */
-    public function homeAction(): Response
-    {
-        return $this->render('home.html.twig');
-    }
 }
